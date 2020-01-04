@@ -133,6 +133,11 @@
       <LastGenOutput>db.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Database\AntiSocialHistory" />
+    <Content Include="Database\crimecriminalDB" />
+    <Content Include="Database\db" />
+    <Content Include="Database\HotelBackup" />
+    <Content Include="Database\HotelState" />
     <None Include="db.dbml.layout">
       <DependentUpon>db.dbml</DependentUpon>
     </None>
