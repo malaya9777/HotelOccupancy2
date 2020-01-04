@@ -13,10 +13,8 @@ namespace HotelOccupancy2
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            {               
                 
-                Session.Abandon();
-                Session.Clear();
                 
             }
         }
@@ -26,6 +24,7 @@ namespace HotelOccupancy2
             if(userVerified(username.Text, password.Text))
             {
                 FormsAuthentication.RedirectFromLoginPage(username.Text, RemeberMe.Checked);
+                
             }
             else
             {
@@ -43,6 +42,7 @@ namespace HotelOccupancy2
                 var record = db.Users.Where(n => n.UserName == text1 && n.Password == hashPassword && n.IsAdmin==false && n.Active==true).SingleOrDefault();
                 if (record != null)
                 {
+                    Session.Add("UserID", record.ID);
                     return true;
                 }
                 else

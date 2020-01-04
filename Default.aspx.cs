@@ -16,8 +16,11 @@ namespace HotelOccupancy2
                 loadDropdown();
                 loadReadonlyAttribute();
                 
+                
             }
         }
+
+        
 
         private void loadReadonlyAttribute()
         {
@@ -43,39 +46,43 @@ namespace HotelOccupancy2
         {
             if (Page.IsValid)
             {
-                var record = new Record();
-                record.Name = name.Text;
-                record.IsForigner = isForigner.Checked;
-                record.FatherName = fathersName.Text;
-                record.Address = address.Text;
-                if (isForigner.Checked)
+                if (Session["UserID"]!=null)
                 {
+                    var record = new Record();
+                    record.UserID = Convert.ToInt32(Session["UserID"]);
+                    record.Name = name.Text;
+                    record.IsForigner = isForigner.Checked;
+                    record.FatherName = fathersName.Text;
+                    record.Address = address.Text;
+                    if (isForigner.Checked)
+                    {
 
-                    record.State = "";
-                    record.District = "";
-                    record.Pincode = "";
+                        record.State = "";
+                        record.District = "";
+                        record.Pincode = "";
 
-                }
-                else
-                {
-                    record.State = state.SelectedItem.Text;
-                    record.District = district.SelectedItem.Text;
-                    record.Pincode = pincode.Text;
-                }
-                record.Country = country.Text;
-                record.Mobile = mobile.Text;
-                record.ICardType = idCardType.SelectedValue;
-                record.ICardNumber = idCardNo.Text;
-                record.RoomNumbers = roomNo.Text;
-                record.CheckIn = Convert.ToDateTime(checkDate.Text);
-                record.Duration = Convert.ToInt32(duration.Text);
-                record.Accompanies = accompanies.Text;
-                record.Photo = photo.FileBytes;
-                using(dbDataContext db = new dbDataContext())
-                {
-                    db.Records.InsertOnSubmit(record);
-                    db.SubmitChanges();
-                    Response.Redirect(Request.RawUrl);
+                    }
+                    else
+                    {
+                        record.State = state.SelectedItem.Text;
+                        record.District = district.SelectedItem.Text;
+                        record.Pincode = pincode.Text;
+                    }
+                    record.Country = country.Text;
+                    record.Mobile = mobile.Text;
+                    record.ICardType = idCardType.SelectedValue;
+                    record.ICardNumber = idCardNo.Text;
+                    record.RoomNumbers = roomNo.Text;
+                    record.CheckIn = Convert.ToDateTime(checkDate.Text);
+                    record.Duration = Convert.ToInt32(duration.Text);
+                    record.Accompanies = accompanies.Text;
+                    record.Photo = photo.FileBytes;
+                    using (dbDataContext db = new dbDataContext())
+                    {
+                        db.Records.InsertOnSubmit(record);
+                        db.SubmitChanges();
+                        Response.Redirect(Request.RawUrl);
+                    } 
                 }
             }
         }
