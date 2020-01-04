@@ -8,18 +8,34 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
     <form id="form1" runat="server">
         <div class="row">
-            <div class="col-sm-6" style="text-align:center">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="alert alert-danger" style="visibility: hidden;" id="danger" runat="server">
+                    <strong>Failed!</strong> Username or Password is incorrect.
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" style="text-align: center">
                 <h2>Puri Police</h2>
                 <h3>Hotel Occupancy Details</h3>
                 <p>An initiative to ensure safty and security of tourists.</p>
             </div>
-            
+
+
             <div class="col-sm-6">
                 <div class="form">
                     <div class="form-group">
@@ -43,5 +59,6 @@
         </div>
 
     </form>
+
 </body>
 </html>

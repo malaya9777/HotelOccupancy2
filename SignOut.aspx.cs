@@ -8,12 +8,15 @@ using System.Web.UI.WebControls;
 
 namespace HotelOccupancy2
 {
-    public partial class SiteMaster : MasterPage
+    public partial class SignOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            userName.InnerText ="Hello "+ HttpContext.Current.User.Identity.Name;
-            
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            Session.Clear();
+            FormsAuthentication.RedirectToLoginPage();
+
         }
     }
 }

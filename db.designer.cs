@@ -519,7 +519,7 @@ namespace HotelOccupancy2
 		
 		private string _Password;
 		
-		private System.Nullable<bool> _IsAdmin;
+		private bool _IsAdmin;
 		
 		private string _Location;
 		
@@ -527,7 +527,7 @@ namespace HotelOccupancy2
 		
 		private string _Longitude;
 		
-		private System.Nullable<bool> _Active;
+		private bool _Active;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -539,7 +539,7 @@ namespace HotelOccupancy2
     partial void OnUserNameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnIsAdminChanging(System.Nullable<bool> value);
+    partial void OnIsAdminChanging(bool value);
     partial void OnIsAdminChanged();
     partial void OnLocationChanging(string value);
     partial void OnLocationChanged();
@@ -547,7 +547,7 @@ namespace HotelOccupancy2
     partial void OnLatitudeChanged();
     partial void OnLongitudeChanging(string value);
     partial void OnLongitudeChanged();
-    partial void OnActiveChanging(System.Nullable<bool> value);
+    partial void OnActiveChanging(bool value);
     partial void OnActiveChanged();
     #endregion
 		
@@ -576,7 +576,7 @@ namespace HotelOccupancy2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string UserName
 		{
 			get
@@ -596,7 +596,7 @@ namespace HotelOccupancy2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Password
 		{
 			get
@@ -616,8 +616,8 @@ namespace HotelOccupancy2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsAdmin", DbType="Bit")]
-		public System.Nullable<bool> IsAdmin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsAdmin", DbType="Bit NOT NULL")]
+		public bool IsAdmin
 		{
 			get
 			{
@@ -696,8 +696,8 @@ namespace HotelOccupancy2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
-		public System.Nullable<bool> Active
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
 		{
 			get
 			{

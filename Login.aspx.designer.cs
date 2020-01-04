@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HotelOccupancy2 {
-    
-    
-    public partial class Login {
-        
+namespace HotelOccupancy2
+{
+
+
+    public partial class Login
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,16 @@ namespace HotelOccupancy2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
+        /// <summary>
+        /// danger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl danger;
+
         /// <summary>
         /// username control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace HotelOccupancy2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox username;
-        
+
         /// <summary>
         /// password control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace HotelOccupancy2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
-        
+
         /// <summary>
         /// RemeberMe control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace HotelOccupancy2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox RemeberMe;
-        
+
         /// <summary>
         /// Submit control.
         /// </summary>
